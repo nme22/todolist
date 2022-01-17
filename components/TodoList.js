@@ -30,9 +30,13 @@ function TodoList({}) {
     });
     setTodos(newTodos);
   }
+  function addTodo(todo) {
+    setTodos([...todos, todo]);
+  }
+
   if (!todos.length) {
     return (
-      <Badge colorScheme="red" p="4" m="4">
+      <Badge colorScheme="red" p="4" m="4" borderRadius="lg">
         Nothing To Do!
       </Badge>
     );

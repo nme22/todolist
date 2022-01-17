@@ -3,9 +3,8 @@ import AddTodo from '../components/AddTodo';
 import { Heading } from '@chakra-ui/react';
 import { VStack, IconButton, Badge } from '@chakra-ui/react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
 
-export default function Home(todos, deleteTodo) {
+export default function Home(todos, deleteTodo, addTodo) {
   return (
     <VStack p={4}>
       <IconButton
@@ -24,7 +23,7 @@ export default function Home(todos, deleteTodo) {
         Todo Application
       </Heading>
       <TodoList todos={todos} deleteTodo={deleteTodo} />
-      <AddTodo />
+      <AddTodo addTodo={addTodo} />
     </VStack>
   );
 }

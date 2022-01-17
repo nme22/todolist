@@ -6,11 +6,13 @@ import {
   IconButton,
   StackDivider,
   Spacer,
+  Badge,
 } from '@chakra-ui/react';
 import { FaTrash } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 
-function TodoList() {
-  const todos = [
+function TodoList({}) {
+  const initialTodos = [
     {
       id: 1,
       body: 'read code',
@@ -20,6 +22,22 @@ function TodoList() {
       body: 'practice code',
     },
   ];
+  const [todos, setTodos] = useState(initialTodos);
+
+  function deleteTodo(id) {
+    const newTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    setTodos(newTodos);
+  }
+  if (!todos.length) {
+    return (
+      <Badge colorScheme="red" p="4" m="4">
+        Nothing To Do!
+      </Badge>
+    );
+  }
+
   return (
     <VStack
       divider={<StackDivider />}
@@ -35,7 +53,11 @@ function TodoList() {
         <HStack key={todo.id}>
           <Text>{todo.body}</Text>
           <Spacer />
-          <IconButton icon={<FaTrash />} isRound="true" />
+          <IconButton
+            icon={<FaTrash />}
+            isRound="true"
+            onClick={() => deleteTodo(todo.id)}
+          />
         </HStack>
       ))}
     </VStack>

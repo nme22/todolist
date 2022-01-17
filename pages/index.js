@@ -22,6 +22,7 @@ export default function Home() {
       >
         Todo Application
       </Heading>
+      <TodoList />
     </VStack>
   );
 }

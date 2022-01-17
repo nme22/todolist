@@ -1,11 +1,27 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import TodoList from '../components/TodoList';
+import AddTodo from '../components/AddTodo';
+import { Heading } from '@chakra-ui/react';
+import { VStack, IconButton } from '@chakra-ui/react';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function Home() {
   return (
-    <div>
-      <h1>Todo list application</h1>
-    </div>
+    <VStack p={4}>
+      <IconButton
+        icon={<FaSun />}
+        isRound="true"
+        size="lg"
+        alignSelf="flex-end"
+      />
+      <Heading
+        mb="8"
+        fontWeight="extrabold"
+        size="2xl"
+        bgGradient="linear(to-r, red.500, red.300, cyan.300)"
+        bgClip="text"
+      >
+        Todo Application
+      </Heading>
+    </VStack>
   );
 }

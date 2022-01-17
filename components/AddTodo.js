@@ -1,13 +1,23 @@
 import { HStack, Input, Button } from '@chakra-ui/react';
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import React from 'react';
 
 function AddTodo({ addTodo }) {
+  const [content, setContent] = useState('');
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(content);
+    const todo = {
+      id: nanoid(),
+      body: content,
+    };
+
+    console.log(todo);
+    addTodo(todo);
+    setContent('');
   }
-  const [content, setContent] = useState('');
+
   return (
     <form onSubmit={handleSubmit}>
       <HStack mt="6">

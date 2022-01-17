@@ -8,8 +8,9 @@ import {
   Spacer,
   Badge,
 } from '@chakra-ui/react';
+import AddTodo from '../components/AddTodo';
 import { FaTrash } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function TodoList({}) {
   const initialTodos = [
@@ -36,9 +37,12 @@ function TodoList({}) {
 
   if (!todos.length) {
     return (
-      <Badge colorScheme="red" p="4" m="4" borderRadius="lg">
-        Nothing To Do!
-      </Badge>
+      <VStack>
+        <Badge colorScheme="red" p="4" m="4" borderRadius="lg">
+          Nothing To Do!
+        </Badge>
+        <AddTodo addTodo={addTodo} />
+      </VStack>
     );
   }
 
@@ -64,6 +68,7 @@ function TodoList({}) {
           />
         </HStack>
       ))}
+      <AddTodo addTodo={addTodo} />
     </VStack>
   );
 }

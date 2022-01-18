@@ -20,7 +20,7 @@ function TodoList({}) {
     },
     {
       id: 2,
-      body: 'Learning coding practices',
+      body: 'Learning good coding habits ',
     },
     {
       id: 3,

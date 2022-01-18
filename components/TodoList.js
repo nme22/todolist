@@ -10,20 +10,31 @@ import {
 } from '@chakra-ui/react';
 import AddTodo from '../components/AddTodo';
 import { FaTrash } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function TodoList({}) {
   const initialTodos = [
     {
       id: 1,
-      body: 'read code',
+      body: 'Read some code',
     },
     {
       id: 2,
-      body: 'practice code',
+      body: 'Learning coding practices',
+    },
+    {
+      id: 3,
+      body: 'Practice code',
     },
   ];
   const [todos, setTodos] = useState(initialTodos);
+
+  // const [todos, setTodos] = useState(
+  //   JSON.parse(localStorage.getItem('todos')) || []
+  // );
+  // useEffect(() => {
+  //   localStorage.setItem('todos', JSON.stringify(todos));
+  // }, [todos]);
 
   function deleteTodo(id) {
     const newTodos = todos.filter((todo) => {

@@ -22,6 +22,7 @@ export default function Home(todos, deleteTodo) {
         size="2xl"
         bgGradient="linear(to-r, red.500, red.300, cyan.300)"
         bgClip="text"
+        fontFamily="monospace"
       >
         Todo App
       </Heading>

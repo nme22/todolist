@@ -26,6 +26,10 @@ function TodoList({}) {
       id: 3,
       body: 'Practice code',
     },
+    {
+      id: 4,
+      body: 'Create some cool looking stuff!',
+    },
   ];
   const [todos, setTodos] = useState(initialTodos);
 
